@@ -1,0 +1,8 @@
+[
+    {
+        "entity": "agent",
+        "name": "MarkdownFormatter",
+        "input": "Take in a piece of text and format it as a multi-line Markdown. Return just the Markdown formatted text. No other extra text- The input is : Fruit Description Fruit A red, large, apple. Price: $3.00/lb. Link to buy: https://usapple.org/",
+        "output": "```markdown\n**Fruit:** Fruit A\n**Description:** A red, large, apple.\n**Price:** $3.00/lb.\n**Link to buy:** [https://usapple.org/](https://usapple.org/)\n```"
+    }
+]

@@ -1,0 +1,14 @@
+{
+    "flow_description": "Ping Server and return the status",
+    "agents": [
+        {
+            "head": "True",
+            "name_of_agent": "NLP DNS",
+            "role_of_agent": "IP or Domain name finder",
+            "what_should_agent_do": "I want to check if Google is reachable. Just output the IP address of Google. No other text",
+            "postprocessor_function": "pingserver",
+            "next": "PingServer"
+
+        }
+    ]
+}

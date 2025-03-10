@@ -1,0 +1,21 @@
+{
+    "flow_description": "Generate performance data for 5G RAN",
+    "agents": [
+        {
+            "head": "True",
+            "name_of_agent": "DataSimulator",
+            "role_of_agent": "Data Simulator",
+            "what_should_agent_do": "Write Python code snippet to generate simulated raw performance data 5G RAN. Generate data about latency, throuhput, users attached, mobility, type of devices, sessions end and start times etc. The generated data should be stored in a Pandas dataframe",
+            "postprocessor_function": "None",
+            "next": "DataVisualizer"
+        },
+        {
+            "head": "False",
+            "name_of_agent": "DataVisualizer",
+            "role_of_agent": "Data Visualizer",
+            "what_should_agent_do": "Write Python code snippet to visualize this data. Write code to generate a barchart and a scattercharts and a donut chart, and a time series chart. The charts should have proper legends, titles, and axes names",
+            "postprocessor_function": "None",
+            "next": "None"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+[
+    {
+        "entity": "agent",
+        "name": "NLP DNS",
+        "input": "I want to check if Google is reachable. Just output the IP address of Google. No other text",
+        "output": "142.250.72.206"
+    },
+    {
+        "entity": "function",
+        "name": "pingserver",
+        "input": "142.250.72.206",
+        "output": "\nPinging 142.250.72.206 with 32 bytes of data:\nReply from 142.250.72.206: bytes=32 time=94ms TTL=53\n\nPing statistics for 142.250.72.206:\n    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),\nApproximate round trip times in milli-seconds:\n    Minimum = 94ms, Maximum = 94ms, Average = 94ms\n"
+    }
+]

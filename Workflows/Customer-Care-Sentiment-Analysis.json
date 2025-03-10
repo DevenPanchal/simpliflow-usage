@@ -1,0 +1,37 @@
+{
+    "flow_description": "Perform sentiment analysis on Customer Care Data of a Telecom Company",
+    "agents": [
+        {
+            "head": "True",
+            "name_of_agent": "DataSimulator",
+            "role_of_agent": "Data Simulator",
+            "what_should_agent_do": "Write Python code snippet to simulate raw social media data for a telecom company's customer care service. Generate data about customer queries, responses, timestamps, and user ratings. The generated data should be stored in a Pandas dataframe.",
+            "postprocessor_function": "None",
+            "next": "DataCleaner"
+        },
+        {
+            "head": "False",
+            "name_of_agent": "DataCleaner",
+            "role_of_agent": "Data Cleaner",
+            "what_should_agent_do": "Write Python code snippet to clean the collected social media data. This includes removing duplicates, handling missing values, and normalizing text (e.g., lowercasing, removing special characters). The cleaned data should be stored in a Pandas dataframe.",
+            "postprocessor_function": "None",
+            "next": "SentimentAnalyzer"
+        },
+        {
+            "head": "False",
+            "name_of_agent": "SentimentAnalyzer",
+            "role_of_agent": "Sentiment Analyzer",
+            "what_should_agent_do": "Write Python code snippet to perform sentiment analysis on the cleaned social media data. Use a pre-trained sentiment analysis model . The results should include sentiment scores and labels (positive, negative, neutral) and should be stored in a Pandas dataframe.",
+            "postprocessor_function": "None",
+            "next": "DataVisualizer"
+        },
+        {
+            "head": "False",
+            "name_of_agent": "DataVisualizer",
+            "role_of_agent": "Data Visualizer",
+            "what_should_agent_do": "Write Python code snippet to visualize the sentiment analysis results. Generate a pie chart for sentiment distribution, a bar chart for sentiment over time, and a word cloud for the most frequent words in positive and negative tweets. The charts should have proper legends, titles, and axes names.",
+            "postprocessor_function": "None",
+            "next": "None"
+        }
+    ]
+}

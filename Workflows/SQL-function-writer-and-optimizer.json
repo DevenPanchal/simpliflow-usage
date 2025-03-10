@@ -1,0 +1,22 @@
+{
+    "flow_description": "Write SQL based on Natural language and optimize it",
+    "agents": [
+        {
+            "head": "True",
+            "name_of_agent": "SQL Writer",
+            "role_of_agent": "SQL Writer",
+            "what_should_agent_do": " ",
+            "postprocessor_function": "None",
+            "next": "DataVisualizer"
+        },
+        {
+            "head": "False",
+            "name_of_agent": "DataVisualizer",
+            "role_of_agent": "Data Visualizer",
+            "what_should_agent_do": "Write Python code snippet to visualize this data. Also generate some Donut charts",
+            "postprocessor_function": "None",
+            "next": "None"
+        }
+    ]
+}
+

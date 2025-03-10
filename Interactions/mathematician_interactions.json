@@ -1,0 +1,44 @@
+[
+    {
+        "entity": "agent",
+        "name": "Multiplier",
+        "input": "Take in 3 and 4, Return only the multiplication result number. Nothing else ",
+        "output": "12"
+    },
+    {
+        "entity": "function",
+        "name": "Adder",
+        "input": "12",
+        "output": "14"
+    },
+    {
+        "entity": "agent",
+        "name": "Divider",
+        "input": "Take this number, divide it by the largest prime number below 20 and return only the Remainder result number. No other text.---14---",
+        "output": "2"
+    },
+    {
+        "entity": "agent",
+        "name": "Binary Converter",
+        "input": "Take this number, convert it to binary and return just the result number. No other text ---2---",
+        "output": "10"
+    },
+    {
+        "entity": "function",
+        "name": "printeachcharindiffcolors",
+        "input": "10",
+        "output": "\u001b[90m1\u001b[00m\u001b[91m0\u001b[00m"
+    },
+    {
+        "entity": "agent",
+        "name": "Hex Converter",
+        "input": "Take this binary number, convert it to hexadecimal and return just the result number. No other text ---\u001b[90m1\u001b[00m\u001b[91m0\u001b[00m---",
+        "output": "A"
+    },
+    {
+        "entity": "function",
+        "name": "printinpink",
+        "input": "A",
+        "output": "\u001b[95mA\u001b[00m"
+    }
+]

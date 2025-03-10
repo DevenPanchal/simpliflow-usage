@@ -1,0 +1,21 @@
+{
+    "flow_description": "Simulated raw sales data for an Ecommerce website",
+    "agents": [
+        {
+            "head": "True",
+            "name_of_agent": "DataSimulator",
+            "role_of_agent": "Data Simulator",
+            "what_should_agent_do": "Write Python code snippet to generate simulated raw sales data 5G RAN. The generated data should be stored in a Pandas dataframe",
+            "postprocessor_function": "None",
+            "next": "DataVisualizer"
+        },
+        {
+            "head": "False",
+            "name_of_agent": "DataVisualizer",
+            "role_of_agent": "Data Visualizer",
+            "what_should_agent_do": "Write Python code snippet to visualize this data. Also generate some Donut charts",
+            "postprocessor_function": "None",
+            "next": "None"
+        }
+    ]
+}
