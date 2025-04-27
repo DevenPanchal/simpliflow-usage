@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workflow JSON Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+      /* Add these new styles at the beginning of your existing style section */
+      .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .video-background video {
+      position: absolute;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.2;  /* 20% transparency */
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+    input[type="text"], input[type="number"], textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      outline: none;
+    }
+    h3 {
+      margin-bottom: 5px;
+      color: #007bff;
+    }
+    hr {
+      border: 0;
+      height: 1px;
+      background: #ddd;
+      margin: 20px 0;
+    }
+    #outputJSON {
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .progress-bar {
+      height: 10px;
+      background: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .progress-bar-inner {
+      height: 100%;
+      width: 0;
+      background: #007bff;
+      transition: width 0.3s ease, background-color 0.3s ease;
+    }
+    .agent-block {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.5s ease forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="https://video-previews.elements.envatousercontent.com/077ba64b-445b-406a-a685-7356a41e079f/watermarked_preview/watermarked_preview.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="container">
+    <h1>Interactive Workflow JSON Generator</h1>
+    <div class="progress-bar">
+      <div class="progress-bar-inner" id="progressBar"></div>
+    </div>
+    
+    <!-- Step 1: Workflow Description -->
+    <div id="question1" class="question">
+      <label for="flowDescription">1. Describe the purpose of the workflow:</label>
+      <input type="text" id="flowDescription" placeholder="Enter workflow description">
+      <button onclick="nextQuestion(1)">Next</button>
+    </div>
+    
+    <!-- Step 2: Number of Agents -->
+    <div id="question2" class="question hidden">
+      <label for="numAgents">2. How many agents should be in the workflow?</label>
+      <input type="number" id="numAgents" placeholder="Enter number of agents" min="1">
+      <button onclick="setupAgents()">Next</button>
+    </div>
+    
+    <!-- Step 3: Agent Details -->
+    <div id="agentQuestions" class="hidden">
+      <div id="agentsContainer"></div>
+      <button onclick="generateJSON()">Generate JSON</button>
+    </div>
+    
+    <!-- Output Section -->
+    <div id="outputSection" class="question hidden">
+      <h2>Generated Workflow JSON</h2>
+      <textarea id="outputJSON" rows="10" readonly></textarea>
+      <button onclick="resetForm()">Start Over</button>
+    </div>
+
+     <!-- Add a button to save the generated workflow to ready.json file -->
+    <button id="saveButton" class="hidden" onclick="saveJSON()">Save to ready.json</button>
+    <script>
+      // Function to save the generated JSON to a file
+      function saveJSON() {
+        const json = document.getElementById('outputJSON').value;
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'ready.json';
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    </script>
+
+  </div>
+
+ 
+  
+
+  <script>
+    // Function to move to the next question step
+    function nextQuestion(currentQuestion) {
+      document.getElementById('question' + currentQuestion).classList.add('hidden');
+      document.getElementById('question' + (currentQuestion + 1)).classList.remove('hidden');
+      updateProgressBar(currentQuestion + 1);
+      smoothScrollToTop();
+    }
+    
+    // Update progress bar
+    function updateProgressBar(step) {
+      const progressBar = document.getElementById('progressBar');
+      const totalSteps = 3; // Total number of steps
+      const progress = (step / totalSteps) * 100;
+      progressBar.style.width = progress + '%';
+    }
+    
+    // Smooth scroll to top
+    function smoothScrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Setup agent input fields based on the number provided
+    function setupAgents() {
+      var numAgents = parseInt(document.getElementById('numAgents').value);
+      if (isNaN(numAgents) || numAgents < 1) {
+        alert("Please enter a valid number of agents.");
+        return;
+      }
+      document.getElementById('question2').classList.add('hidden');
+      document.getElementById('agentQuestions').classList.remove('hidden');
+      updateProgressBar(3);
+      
+      var container = document.getElementById('agentsContainer');
+      container.innerHTML = ""; // Clear any existing agent inputs
+      
+      for (var i = 1; i <= numAgents; i++) {
+        // Create a new agent block
+        var agentDiv = document.createElement("div");
+        agentDiv.className = "agent-block";
+        agentDiv.innerHTML = `
+          <h3>Agent ${i}</h3>
+          <label>Name of the Agent:</label>
+          <input type="text" class="agentName" placeholder="Agent Name">
+          <label>Role of the Agent:</label>
+          <input type="text" class="agentRole" placeholder="Agent Role">
+          <label>What should the agent do?</label>
+          <input type="text" class="agentTask" placeholder="Agent Task">
+          <label>Postprocessor Function (optional):</label>
+          <input type="text" class="agentPostprocessor" placeholder="e.g., trim_to_50_chars, others you may find in func.py file (or enter 'None')">
+          <label>Next Agent Name (type 'None' if this is the last agent):</label>
+          <input type="text" class="agentNext" placeholder="Next Agent Name">
+        `;
+        container.appendChild(agentDiv);
+      }
+    }
+    
+    // Generate JSON from the collected inputs
+    function generateJSON() {
+      var flowDescription = document.getElementById('flowDescription').value.trim();
+      if (flowDescription === "") {
+        alert("Please enter a workflow description.");
+        return;
+      }
+      
+      var agentDivs = document.querySelectorAll('#agentsContainer .agent-block');
+      var agents = [];
+      
+      agentDivs.forEach(function(div, index) {
+        var agentName = div.querySelector('.agentName').value.trim();
+        var agentRole = div.querySelector('.agentRole').value.trim();
+        var agentTask = div.querySelector('.agentTask').value.trim();
+        var agentPostprocessor = div.querySelector('.agentPostprocessor').value.trim();
+        var agentNext = div.querySelector('.agentNext').value.trim();
+        
+        // Convert blank postprocessor to null
+        if (agentPostprocessor === "") {
+          agentPostprocessor = null;
+        }
+        // If "None" is entered for next, set it to null
+        if (agentNext.toLowerCase() === "none" || agentNext === "") {
+          agentNext = null;
+        }
+        
+        agents.push({
+          "head": index === 0 ? "True" : "False",
+          "name_of_agent": agentName,
+          "role_of_agent": agentRole,
+          "what_should_agent_do": agentTask,
+          "postprocessor_function": agentPostprocessor,
+          "next": agentNext
+        });
+      });
+      
+      var workflow = {
+        "flow_description": flowDescription,
+        "agents": agents
+      };
+      
+      document.getElementById('outputSection').classList.remove('hidden');
+      document.getElementById('outputJSON').value = JSON.stringify(workflow, null, 4);
+      document.getElementById('saveButton').classList.remove('hidden'); // Show the save button
+    }
+    
+    // Reset the form to start over
+    function resetForm() {
+      document.getElementById('flowDescription').value = '';
+      document.getElementById('numAgents').value = '';
+      document.getElementById('agentsContainer').innerHTML = '';
+      document.getElementById('outputJSON').value = '';
+      document.getElementById('outputSection').classList.add('hidden');
+      document.getElementById('agentQuestions').classList.add('hidden');
+      document.getElementById('question1').classList.remove('hidden');
+      updateProgressBar(1);
+      smoothScrollToTop();
+    }
+  </script>
+</body>
+</html>

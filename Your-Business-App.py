@@ -18,8 +18,8 @@ load_dotenv()  # take environment variables from .env.
 
 
 # STEP 1: REQUIRED PARAMETERS
-vendor = "DeepSeek"  # "OpenAI", "Anthropic" "Cohere", "DeepSeek","Google".  If assigned None, default is "OpenAI".
-modelname = "deepseek-chat" # Choose relevant models that go along with the vendors i.e. "gpt-4o", "gpt-3.5-turbo" ,"claude-3-5-sonnet-20241022", "claude-3-opus","claude-3-5-sonnet", "command-r-plus", "deepseek-chat", "deepseek-reasoner", "gemini-1.5-flash", "gemini-2.0-flash-exp", "gemini-2.0-flash-thinking-exp-01-21" # This is the modelname. If assigned None, default is "gpt-4o".
+vendor = "OpenAI"  # "OpenAI", "Anthropic" "Cohere", "DeepSeek","Google".  If assigned None, default is "OpenAI".
+modelname = "gpt-4o" # Choose relevant models that go along with the vendors i.e. "gpt-4o", "gpt-3.5-turbo" ,"claude-3-5-sonnet-20241022", "claude-3-opus","claude-3-5-sonnet", "command-r-plus", "deepseek-chat", "deepseek-reasoner", "gemini-1.5-flash", "gemini-2.0-flash-exp", "gemini-2.0-flash-thinking-exp-01-21" # This is the modelname. If assigned None, default is "gpt-4o".
 
 # STEP 2: OPTIONAL PARAMETERS  (If set to None, their default values will be used)
 creativity = 0.7  # This is the temperature. If assigned None, default is 0.7
@@ -28,7 +28,7 @@ maxtokens = 1000  # This is the max token limit. If assigned None, default is 20
 
 # STEP 3: SOME MORE CONFIGURATION (agentsfile and dynamic_input)
 # Agents file should be in the same directory. Provide its name. agentsfile cannot be None. After the agentsfile successfully runs, the output of the run will be stored as an appropriate named in interactions.json file in the Interactions directory.
-agentsfile = os.path.join("Workflows", "mathematician.json")  
+agentsfile = os.path.join("Workflows", "ready (1).json")  
 
 # Dynamic Input is the input that would be available and required to start executing the flow. It would typically be the result from the previous processing stages of the application/program.
 # If you have dynamic input, assign it here. dynamic_input can be any object including custom objects, strings, numbers, lists, dictionaries, etc.

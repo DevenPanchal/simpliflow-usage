@@ -9,4 +9,6 @@
 
 4. For more information and extending the package itself, refer to the repository https://github.com/DevenPanchal/simpliflow that contains the code for the simpliflow package itself.
 
+5. Read about simpliflow : https://devenpanchal.github.io/simpliflow-website/
+
 
