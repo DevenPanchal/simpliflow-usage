@@ -1,5 +1,7 @@
 # Using simpliflow
 
+[![PyPI downloads](https://img.shields.io/pypi/dm/your-package-name.svg)](https://pypi.org/project/simpliflow/)
+
 1. Install simpliflow using  
 ```pip install simpliflow``` 
 
