@@ -15,30 +15,30 @@
         "entity": "agent",
         "name": "Divider",
         "input": "Take this number, divide it by the largest prime number below 20 and return only the Remainder result number. No other text.---14---",
-        "output": "2"
+        "output": "14 divided by 19 is 0 remainder 14 \n14"
     },
     {
         "entity": "agent",
         "name": "Binary Converter",
-        "input": "Take this number, convert it to binary and return just the result number. No other text ---2---",
-        "output": "10"
+        "input": "Take this number, convert it to binary and return just the result number. No other text ---14 divided by 19 is 0 remainder 14 \n14---",
+        "output": "1110"
     },
     {
         "entity": "function",
         "name": "printeachcharindiffcolors",
-        "input": "10",
-        "output": "\u001b[90m1\u001b[00m\u001b[91m0\u001b[00m"
+        "input": "1110",
+        "output": "\u001b[90m1\u001b[00m\u001b[91m1\u001b[00m\u001b[92m1\u001b[00m\u001b[93m0\u001b[00m"
     },
     {
         "entity": "agent",
         "name": "Hex Converter",
-        "input": "Take this binary number, convert it to hexadecimal and return just the result number. No other text ---\u001b[90m1\u001b[00m\u001b[91m0\u001b[00m---",
-        "output": "A"
+        "input": "Take this binary number, convert it to hexadecimal and return just the result number. No other text ---\u001b[90m1\u001b[00m\u001b[91m1\u001b[00m\u001b[92m1\u001b[00m\u001b[93m0\u001b[00m---",
+        "output": "E"
     },
     {
         "entity": "function",
         "name": "printinpink",
-        "input": "A",
-        "output": "\u001b[95mA\u001b[00m"
+        "input": "E",
+        "output": "\u001b[95mE\u001b[00m"
     }
 ]

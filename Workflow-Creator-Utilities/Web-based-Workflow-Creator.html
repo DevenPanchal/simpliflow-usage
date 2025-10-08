@@ -7,7 +7,7 @@
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
-      background-color: #f4f4f9;
+      background-color:rgb(31,41,55);
       color: #333;
     }
       /* Add these new styles at the beginning of your existing style section */
@@ -126,12 +126,14 @@
 <body>
   <div class="video-background">
     <video autoplay muted loop playsinline>
-      <source src="https://video-previews.elements.envatousercontent.com/077ba64b-445b-406a-a685-7356a41e079f/watermarked_preview/watermarked_preview.mp4" type="video/mp4">
+      <source src="https://youtu.be/ciMEC3Ug8Lg" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
   <div class="container">
     <h1>Interactive Workflow JSON Generator</h1>
+    <h4> An easier way to create workflow JSONs</h4>
+    <h4> Once done, save it under the "Workflows" directory of your project and use like other workflows</h4>
     <div class="progress-bar">
       <div class="progress-bar-inner" id="progressBar"></div>
     </div>
@@ -235,9 +237,9 @@
           <input type="text" class="agentRole" placeholder="Agent Role">
           <label>What should the agent do?</label>
           <input type="text" class="agentTask" placeholder="Agent Task">
-          <label>Postprocessor Function (optional):</label>
-          <input type="text" class="agentPostprocessor" placeholder="e.g., trim_to_50_chars, others you may find in func.py file (or enter 'None')">
-          <label>Next Agent Name (type 'None' if this is the last agent):</label>
+          <label>Postprocessor Function (Important: Type in 'None' if no postprocessor function should be invoked after this agent):</label>
+          <input type="text" class="agentPostprocessor" placeholder="e.g., trim_to_50_chars, others you may find in func.py file">
+          <label>Next Agent Name (Important: Type in 'None' if this is the last agent):</label>
           <input type="text" class="agentNext" placeholder="Next Agent Name">
         `;
         container.appendChild(agentDiv);
