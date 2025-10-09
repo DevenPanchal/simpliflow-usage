@@ -62,7 +62,7 @@
       background-color: #0056b3;
       transform: scale(1.05);
     }
-    input[type="text"], input[type="number"], textarea {
+    input[type="text"], input[type="number"], textarea, select {
       width: 100%;
       padding: 10px;
       font-size: 16px;
@@ -72,7 +72,7 @@
       box-sizing: border-box;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
+    input[type="text"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
       border-color: #007bff;
       box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
       outline: none;
@@ -237,6 +237,11 @@
           <input type="text" class="agentRole" placeholder="Agent Role">
           <label>What should the agent do?</label>
           <input type="text" class="agentTask" placeholder="Agent Task">
+          <label>Require Human Approval of Response:</label>
+          <select class="agentApproval">
+            <option value="False">False</option>
+            <option value="True">True</option>
+          </select>
           <label>Postprocessor Function (Important: Type in 'None' if no postprocessor function should be invoked after this agent):</label>
           <input type="text" class="agentPostprocessor" placeholder="e.g., trim_to_50_chars, others you may find in func.py file">
           <label>Next Agent Name (Important: Type in 'None' if this is the last agent):</label>
@@ -262,6 +267,7 @@
         var agentRole = div.querySelector('.agentRole').value.trim();
         var agentTask = div.querySelector('.agentTask').value.trim();
         var agentPostprocessor = div.querySelector('.agentPostprocessor').value.trim();
+        var agentApproval = div.querySelector('.agentApproval').value;
         var agentNext = div.querySelector('.agentNext').value.trim();
         
         // Convert blank postprocessor to null
@@ -278,6 +284,7 @@
           "name_of_agent": agentName,
           "role_of_agent": agentRole,
           "what_should_agent_do": agentTask,
+          "require_human_approval_of_response": agentApproval,
           "postprocessor_function": agentPostprocessor,
           "next": agentNext
         });
@@ -302,6 +309,7 @@
       document.getElementById('outputSection').classList.add('hidden');
       document.getElementById('agentQuestions').classList.add('hidden');
       document.getElementById('question1').classList.remove('hidden');
+      document.getElementById('saveButton').classList.add('hidden');
       updateProgressBar(1);
       smoothScrollToTop();
     }
