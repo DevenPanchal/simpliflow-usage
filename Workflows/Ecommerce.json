@@ -6,6 +6,7 @@
             "name_of_agent": "DataSimulator",
             "role_of_agent": "Data Simulator",
             "what_should_agent_do": "Write Python code snippet to generate simulated raw sales data 5G RAN. The generated data should be stored in a Pandas dataframe",
+            "require_human_approval_of_response": "True",
             "postprocessor_function": "None",
             "next": "DataVisualizer"
         },
@@ -14,6 +15,7 @@
             "name_of_agent": "DataVisualizer",
             "role_of_agent": "Data Visualizer",
             "what_should_agent_do": "Write Python code snippet to visualize this data. Also generate some Donut charts",
+            "require_human_approval_of_response": "True",
             "postprocessor_function": "None",
             "next": "None"
         }

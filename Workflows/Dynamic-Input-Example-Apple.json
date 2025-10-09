@@ -6,6 +6,7 @@
             "name_of_agent": "MarkdownFormatter",
             "role_of_agent": "Markdown Formatter",
             "what_should_agent_do": "Take in a piece of text and format it as a multi-line Markdown. Return just the Markdown formatted text. No other extra text",
+            "require_human_approval_of_response": "False",
             "postprocessor_function": "None",
             "next": "None"
             }

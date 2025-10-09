@@ -5,15 +5,17 @@
             "head": "True",
             "name_of_agent": "SQL Writer",
             "role_of_agent": "SQL Writer",
-            "what_should_agent_do": " ",
+            "what_should_agent_do": "Write a random complex SQL query",
+            "require_human_approval_of_response": "True",
             "postprocessor_function": "None",
-            "next": "DataVisualizer"
+            "next": "Optimizer"
         },
         {
             "head": "False",
-            "name_of_agent": "DataVisualizer",
-            "role_of_agent": "Data Visualizer",
-            "what_should_agent_do": "Write Python code snippet to visualize this data. Also generate some Donut charts",
+            "name_of_agent": "Optimizer",
+            "role_of_agent": "SQL Optimizer",
+            "what_should_agent_do": "Optimize the SQL query for better performance",
+             "require_human_approval_of_response": "True",
             "postprocessor_function": "None",
             "next": "None"
         }

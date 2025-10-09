@@ -6,6 +6,7 @@
             "name_of_agent": "NLP DNS",
             "role_of_agent": "IP or Domain name finder",
             "what_should_agent_do": "I want to check if Linkedin is reachable. Just output the IP address of Linkedin. No other text",
+            "require_human_approval_of_response": "False",
             "postprocessor_function": "pingserver",
             "next": "PingServer"
 

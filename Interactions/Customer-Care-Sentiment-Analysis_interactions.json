@@ -1,0 +1,26 @@
+[
+    {
+        "entity": "agent",
+        "name": "DataSimulator",
+        "input": "Write Python code snippet to simulate raw social media data for a telecom company's customer care service. Generate data about customer queries, responses, timestamps, and user ratings. The generated data should be stored in a Pandas dataframe.",
+        "output": ""
+    },
+    {
+        "entity": "agent",
+        "name": "DataCleaner",
+        "input": "Write Python code snippet to clean the collected social media data. This includes removing duplicates, handling missing values, and normalizing text (e.g., lowercasing, removing special characters). The cleaned data should be stored in a Pandas dataframe.------",
+        "output": ""
+    },
+    {
+        "entity": "agent",
+        "name": "SentimentAnalyzer",
+        "input": "Write Python code snippet to perform sentiment analysis on the cleaned social media data. Use a pre-trained sentiment analysis model . The results should include sentiment scores and labels (positive, negative, neutral) and should be stored in a Pandas dataframe.------",
+        "output": ""
+    },
+    {
+        "entity": "agent",
+        "name": "DataVisualizer",
+        "input": "Write Python code snippet to visualize the sentiment analysis results. Generate a pie chart for sentiment distribution, a bar chart for sentiment over time, and a word cloud for the most frequent words in positive and negative tweets. The charts should have proper legends, titles, and axes names.------",
+        "output": ""
+    }
+]

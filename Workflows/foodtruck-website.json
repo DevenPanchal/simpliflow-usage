@@ -6,6 +6,7 @@
         "name_of_agent": "TechnicalRequirementsWriter",
         "role_of_agent": "Technical Software Requirements Writer",
         "what_should_agent_do": "Write 3-4 Functional technical software requirements for the project given to you. ",
+        "require_human_approval_of_response": "True",
         "postprocessor_function": "None",
         "next": "UserStoryWriter"
       },
@@ -14,6 +15,7 @@
         "name_of_agent": "UserStoryWriter",
         "role_of_agent": "User Story Writer",
         "what_should_agent_do": "Take these functional requirements, and based on them write 5 clear user stories. Each user story should be clear, concise and should be written in the format: As a <type of user>, I want <some goal> so that <some reason>. ",
+        "require_human_approval_of_response": "False",
         "postprocessor_function": "None",
         "next": "SoftwareDeveloper"
       },
@@ -22,6 +24,7 @@
         "name_of_agent": "SoftwareDeveloper",
         "role_of_agent": "Software Developer",
         "what_should_agent_do": "Write Python (Flask), HTML, CSS code to satisfy all the user stories given to you. You must write actual and complete working code. At the end generate a folder structure showing the code files and the code in them. ",
+        "require_human_approval_of_response": "False",
         "postprocessor_function": "trimtoonly50chars",
         "next": "UnitTester"
       },
@@ -30,6 +33,7 @@
         "name_of_agent": "UnitTester",
         "role_of_agent": "Unit Tester",
         "what_should_agent_do": "Write 5 unit tests to test only the Python code given to you. You must write actual and complete working tests",
+        "require_human_approval_of_response": "False",
         "postprocessor_function": "last20chars",
         "next": "None"
       }

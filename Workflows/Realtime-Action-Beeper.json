@@ -6,6 +6,7 @@
             "name_of_agent": "BeepCreator",
             "role_of_agent": "Beep Creator",
             "what_should_agent_do": "Write Python 3.11 code snippet to create 2 beeps from my Windows computer speaker. Return only the code snippet. Nothing else. This is important. Do NOT even include backticks ```python or ``` at the beginning or end of the code snippet.",
+            "require_human_approval_of_response": "True",
             "postprocessor_function": "execute_python_code",
             "next": "SineWaveCreator"
         },
@@ -14,6 +15,7 @@
             "name_of_agent": "LongBeepCreator",
             "role_of_agent": "Long Beep Creator",
             "what_should_agent_do": "Write Python 3.11 code snippet to play a long beep from my Windows computer speaker for 10 seconds. Return only the code snippet. Nothing else. This is important. Do NOT even include ```python or ``` at the beginning or end of the code snippet.",
+            "require_human_approval_of_response": "False",
             "postprocessor_function": "execute_python_code",
             "next": "None"
         }

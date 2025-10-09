@@ -8,7 +8,7 @@ load_dotenv()  # take environment variables from .env
 
 
 # STEP 1: REQUIRED PARAMETERS
-model = "gpt-5-nano"  # Choose the model you want to use in litellm style. Simpliflow supports 100+ models/providers through litellm. See here for a full list of providers: https://docs.litellm.ai/docs/providers/
+model = "gemini/gemini-2.5-pro"  # Choose the model you want to use in litellm style. Simpliflow supports 100+ models/providers through litellm. See here for a full list of providers: https://docs.litellm.ai/docs/providers/
 # examples of models: "gpt-5-nano", "gemini/gemini-2.5-flash" , "gemini/gemini-2.5-pro","claude-sonnet-4-5", "command-r-plus", "huggingface/together/deepseek-ai/DeepSeek-R1","huggingface/meta-llama/Llama-3.3-70B-Instruct" , "huggingface/Qwen/Qwen3-VL-235B-A22B-Thinking", "command-nightly", "nvidia_nim/meta/llama3-70b-instruct", "groq/compound-mini"
 
 
@@ -19,13 +19,13 @@ model = "gpt-5-nano"  # Choose the model you want to use in litellm style. Simpl
 
 creativity = temperature = 1.0
 diversity = top_p = None 
-max_tokens = 1000 
+max_tokens = 100000
 # Many more parameters are supported. See here for a full list of supported parameters: https://docs.litellm.ai/docs/completion/input
 
 
 # STEP 3: SOME MORE CONFIGURATION (agentsfile and dynamic_input)
 # Agents file should be in the same directory. Provide its name. agentsfile cannot be None. After the agentsfile successfully runs, the output of the run will be stored as an appropriate named in interactions.json file in the Interactions directory.
-agentsfile = os.path.join("Workflows", "mathematician.json")  
+agentsfile = os.path.join("Workflows", "Realtime-Action-Beeper.json")
 
 # Dynamic Input is the input that would be available and required to start executing the flow. It would typically be the result from the previous processing stages of the application/program.
 # If you have dynamic input that needs to be available to the first agent, then assign it here. 

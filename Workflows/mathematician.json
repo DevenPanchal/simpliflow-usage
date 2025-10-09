@@ -6,6 +6,7 @@
             "name_of_agent": "Multiplier",
             "role_of_agent": "Multiplier",
             "what_should_agent_do": "Take in 3 and 4, Return only the multiplication result number. Nothing else ",
+            "require_human_approval_of_response": "False",
             "postprocessor_function": "Adder",
             "next": "Divider"
             },
@@ -14,6 +15,7 @@
             "name_of_agent": "Divider",
             "role_of_agent": "Divide and Return Remainder",
             "what_should_agent_do": "Take this number, divide it by the largest prime number below 20 and return only the Remainder result number. No other text.",
+            "require_human_approval_of_response": "False",
             "postprocessor_function": "None",
             "next": "Binary Converter"
           },
@@ -22,6 +24,7 @@
             "name_of_agent": "Binary Converter",
             "role_of_agent": "Binary Converter",
             "what_should_agent_do": "Take this number, convert it to binary and return just the result number. No other text ",
+            "require_human_approval_of_response": "False",
             "postprocessor_function": "printeachcharindiffcolors",
             "next": "Hex Converter"
           },
@@ -30,6 +33,7 @@
             "name_of_agent": "Hex Converter",
             "role_of_agent": "Hex Converter",
             "what_should_agent_do": "Take this binary number, convert it to hexadecimal and return just the result number. No other text ",
+            "require_human_approval_of_response": "False",
             "postprocessor_function": "printinpink",
             "next": "None"
           }

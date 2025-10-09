@@ -6,6 +6,7 @@
             "name_of_agent": "XMLGenerator",
             "role_of_agent": "XML Generator",
             "what_should_agent_do": "Generate an abnormally formatted sample xml file describing Layer 2 Network elements. Return just the xml. No other extra text",
+            "require_human_approval_of_response": "True",
             "postprocessor_function": "printinpink",
             "next": "XML Formatter"
             },
@@ -14,6 +15,7 @@
             "name_of_agent": "XML Formatter",
             "role_of_agent": "XML Formatter",
             "what_should_agent_do": "Take this abnormally formatted xml file and pretty print it. The pretty printed file should have proper indentation and should be easy to read.Return just the xml. No other extra text",
+            "require_human_approval_of_response": "True",
             "postprocessor_function": "printinpink",
             "next": "None"
           }
