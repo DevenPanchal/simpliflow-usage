@@ -1,5 +1,4 @@
-# Using simpliflow
-
+# <img src="/assets/images/Picture2.png" alt="logo" style="height: 40px; width:40px;"/> Using simpliflow
 [![PyPI downloads](https://img.shields.io/pypi/dm/your-package-name.svg)](https://pypi.org/project/simpliflow/)
 
 1. Install simpliflow using  
